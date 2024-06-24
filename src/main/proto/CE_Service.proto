@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.flexmoney.webflux_standalone_playground";
+option java_outer_classname = "LenderServiceProto";
+
+service LenderService {
+    rpc getLenderResponses(CERequest) returns (LenderResponse);
+}
+
+message CERequest {
+    repeated string bankIds = 1;
+    string mobile = 2;
+    string amount = 3;
+}
+
+message LenderResponse {
+    map<string, bool> responses = 1;
+}
